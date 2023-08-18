@@ -1,4 +1,5 @@
 return {
+    framework = 'qbcore',
     debug = {poly = false, treasures = true},   -- treasures: true to see marker above treasures / poly: true to poly zones
 
     treasures = {

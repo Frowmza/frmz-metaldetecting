@@ -1,5 +1,5 @@
 return {
-    debug = {poly = false, treasures = true},   -- true to see marker above treasures and poly zones
+    debug = {poly = false, treasures = true},   -- treasures: true to see marker above treasures / poly: true to poly zones
 
     treasures = {
         count = 100, -- limit of number of treasures that spawns in area

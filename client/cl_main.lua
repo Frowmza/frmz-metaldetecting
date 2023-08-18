@@ -111,7 +111,7 @@ local function removePoints()
 end
 
 RegisterNetEvent('frmz-metaldetecting:startdetect', function()
-    if heatC >= Config.detector.heat then notification("Metal detecting is overheat, wait till it cooldown") return end
+    if heatC >= Config.detector.heat then notification("Metal detector is overheat, wait till it cooldown") return end
     usingDetector = not usingDetector
     if usingDetector then
         startDetecting()
@@ -181,9 +181,9 @@ CreateThread(function()
                 heatC = 0
                 removeDetector()
                 TriggerEvent('frmz-metaldetecting:detectorOverheated')
-                notification("Metal detecting is damaged")
+                notification("Metal detector is damaged")
             elseif usingDetector and heatC >= Config.detector.heat then
-                notification("Metal detecting is overheating")
+                notification("Metal detector is overheating")
                 Wait(5000)
             end
         end

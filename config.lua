@@ -1,11 +1,19 @@
 return {
     debug = {poly = false, treasures = true},   -- true to see marker above treasures and poly zones
+
     treasures = {
-        count = 100 -- limit of number of treasures that spawns in area
+        count = 100, -- limit of number of treasures that spawns in area
+        close = 2, -- close range to dig
+        distance = 6, -- distance to start the BEEP sound away from treasure center
     },
+
+    detector = {
+        overheat = 86, -- value which detector will damaged
+        heat = 80, -- value which notify start warning you that detector is over heating, if the value passed the 'overheat' value the detector will damage
+    },
+
     detectZones = {
         {
-
             vector3(-1122.23, -1698.69, 0.0),
             vector3(-1198.77, -1832.57, 0.0),
             vector3(-1229.61, -1855.9927978516, 0.0),
@@ -18,7 +26,6 @@ return {
             vector3(-1323.0729980469, -1605.9655761719, 0.0)
         },
         {
-
             vector3(-1679.6752929688, -981.88470458984, 0.0),
             vector3(-1679.6752929688, -981.88470458984, 0.0),
             vector3(-1717.31640625, -1063.8728027344, 0.0),
@@ -29,7 +36,6 @@ return {
             vector3(-1729.9864501953, -918.60015869141, 0.0)
         },
         {
-
             vector3(-1075.5496826172, -145.32153320312, 0.0),
             vector3(-1324.7716064453, 23.515180587769, 0.0),
             vector3(-1338.4162597656, 183.1936340332, 0.0),

@@ -13,3 +13,4 @@
 
 ### Edit ```notification()``` function in client/cl_main.lua to notification you want!
 
+### Add `digtool` and `metaldetector` as items for your framework

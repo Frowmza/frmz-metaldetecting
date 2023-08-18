@@ -9,7 +9,7 @@
 
 ```frmz-metaldetecting:treasureFound``` do whatever you want when treasure is found, ex: create a mission for it, or give rewards
 
-```frmz-metaldetecting:detectorOverheated``` this event if metal detector overheated , EX: you can remove the detector
+```frmz-metaldetecting:detectorOverheated``` this event trigger if metal detector overheated
 
 ### Edit ```notification()``` function in client/cl_main.lua to notification you want!
 

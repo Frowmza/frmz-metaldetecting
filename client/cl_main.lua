@@ -1,3 +1,5 @@
+if not lib then return end
+
 local Config = require 'config'
 local count = 1
 local inSpot = 0
@@ -9,8 +11,6 @@ local treasures = {}
 local polys = {}
 local audioName = 'IDLE_BEEP'
 local audioRef = 'EPSILONISM_04_SOUNDSET'
-
-if not lib then return end
 
 lib.disableControls:Add(0,21)
 lib.disableControls:Add(0,22)

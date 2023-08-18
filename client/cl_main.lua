@@ -150,7 +150,6 @@ CreateThread(function()
         polys[_] = lib_zones.poly({
             points = v,
             debug = Config.debug.poly,
-            zone = _,
             thickness = 30,
             onEnter = function()
                 inSpot = _

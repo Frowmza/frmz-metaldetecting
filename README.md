@@ -2,7 +2,7 @@
 ```ox_lib```
 # EVENTS
 
-```frmz-metaldetecting:startdetect``` to spawn the detector and start trasures spawn, you can add it in itemuse or whereever you want
+```frmz-metaldetecting:startdetect``` to spawn the detector and start treasures spawn, you can add it in itemuse or whereever you want
 
 ```frmz-metaldetecting:startDig``` to dig the treasure, you need to be close enough, you can change close distance in config
 

@@ -54,23 +54,26 @@ local function GenerateRandomCoords(data)
 end
 
 local function nearbyPoint(data)
-    Wait(1000)
-    local currentDist = data.currentDistance
-    if not currentDist then return end
-    PlaySoundFromCoord(soundID, audioName, data.coords.x, data.coords.y, data.coords.z, audioRef, false, currentDist, false)
-    treasureFound = currentDist < Config.treasures.close and data.id or 0
+    if usingDetector then
+        Wait(1000)
+        local currentDist = data.currentDistance
+        if not currentDist then return end
+        PlaySoundFromCoord(soundID, audioName, data.coords.x, data.coords.y, data.coords.z, audioRef, false, currentDist * 1.5, false)
+        treasureFound = currentDist < Config.treasures.close and data.id or 0
+    end
 end
 
 local function startDetecting()
+    local disableControls = lib.disableControls
     CreateThread(function()
         while usingDetector do
             Wait(0)
-            lib.disableControls()
+            disableControls()
         end
     end)
     CreateThread(function()
         while usingDetector and inSpot ~= 0 and heatC < Config.detector.heat and count < Config.treasures.count do 
-            Wait(100)
+            Wait(150)
             local randomCoords = GenerateRandomCoords(coords[inSpot])
             if randomCoords then
                 treasures[count] = treasure.new({
@@ -81,7 +84,7 @@ local function startDetecting()
                 })
                 if Config.debug.treasures then
                     CreateThread(function()
-                        while usingDetector do
+                        while true do
                             Wait(0)
                             DrawMarker(2, randomCoords.x, randomCoords.y, randomCoords.z + 3.0, 0.0, 0.0, 0.0, 0.0, 180.0, 0.0, 1.0, 1.0, 1.0, 200, 20, 20, 50, false, true, 2, false, nil, nil, false)
                         end
@@ -194,13 +197,13 @@ end)
 --------------- DIGGING
 
 local function startDig()
-    if treasureFound == 0 then return end
+    if treasureFound == 0 then notification("Nothing is here") return end
     local ped = cache.ped
     removeDetector()
     TaskStartScenarioInPlace(ped, "WORLD_HUMAN_GARDENER_PLANT", 0, true)
     treasures[treasureFound]:remove()
     treasureFound = 0
-    Wait(4000)
+    Wait(7000)
     TriggerEvent('frmz-metaldetecting:treasureFound')
     ClearPedTasks(ped)
 end

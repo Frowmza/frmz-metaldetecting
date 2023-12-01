@@ -21,9 +21,9 @@ local coords = {}
 local soundID = GetSoundId()
 
 local function notification(string)
-    local QBCore = exports['qb-core']:GetCoreObject()
-    if not QBCore then return end
-    QBCore.Functions.Notify(string, "success")
+    Framework.notify({
+        title = string,
+    })
 end
 
 local function removeDetector()

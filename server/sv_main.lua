@@ -1,23 +1,9 @@
-local Config = require 'config'
+local coreModule = Framework.core
 
-if Config.framework == 'qbcore' then
-    local QBCore = exports['qb-core']:GetCoreObject()
+coreModule.RegisterUsableItem('digtool', function(source)
+    TriggerClientEvent("frmz-metaldetecting:startDig", source)
+end)
 
-    QBCore.Functions.CreateUseableItem("metaldetector", function(source)
-        TriggerClientEvent("frmz-metaldetecting:startdetect", source)
-    end)
-
-    QBCore.Functions.CreateUseableItem("digtool", function(source)
-        TriggerClientEvent("frmz-metaldetecting:startDig", source)
-    end)
-elseif Config.framework == 'esx' then
-    local esx = exports["es_extended"]:getSharedObject()
-    
-    esx.RegisterUsableItem('metaldetector', function(source)
-        TriggerClientEvent("frmz-metaldetecting:startdetect", source)
-    end)
-
-    esx.RegisterUsableItem('digtool', function(source)
-        TriggerClientEvent("frmz-metaldetecting:startDig", source)
-    end)
-end
+coreModule.RegisterUsableItem('metaldetector', function(source)
+    TriggerClientEvent("frmz-metaldetecting:startdetect", source)
+end)
